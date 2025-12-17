@@ -22,7 +22,7 @@ gui.Name = "A7xBaseUI"
 gui.ResetOnSpawn = false
 gui.IgnoreGuiInset = true
 
-‎--الواجهه الرئيسية
+--الواجهه الرئيسية
 
 local mainFrame = Instance.new("Frame", gui)
 mainFrame.Size = UDim2.new(0, 540, 0, 320)
@@ -34,7 +34,7 @@ mainFrame.Active = true
 mainFrame.Draggable = true
 mainFrame.Visible = true
 
-‎-- زر اغلاق/فتح الواجهه
+-- زر اغلاق/فتح الواجهه
 
 local toggleIcon = Instance.new("TextButton", gui)
 toggleIcon.Size = UDim2.new(0, 40, 0, 40)
@@ -58,7 +58,7 @@ local header = Instance.new("Frame", mainFrame)
 header.Size = UDim2.new(1, 0, 0, 40)
 header.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 
-‎-- العنوان 
+-- العنوان 
 
 local title = Instance.new("TextLabel", header)
 title.Size = UDim2.new(1, 0, 1, 0)
@@ -69,7 +69,7 @@ title.TextSize = 18
 title.Text = "A7xDev (Paid)"
 title.TextXAlignment = Enum.TextXAlignment.Center
 
-‎-- زر الاغلاق 
+-- زر الاغلاق 
 
 local closeBtn = Instance.new("TextButton", mainFrame)
 closeBtn.Size = UDim2.new(0, 30, 0, 30)
@@ -84,21 +84,21 @@ closeBtn.MouseButton1Click:Connect(function()
 	mainFrame.Visible = false
 	isVisible = false
 end)
-‎-- الشريط الجانبي 
+-- الشريط الجانبي 
 
 local sidebar = Instance.new("Frame", mainFrame)
 sidebar.Size = UDim2.new(0, 100, 0, 278)
 sidebar.Position = UDim2.new(0, 0, 0, 42)
 sidebar.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 
-‎-- الخط الابيض الجانبي
+-- الخط الابيض الجانبي
 
 local sideLine = Instance.new("Frame", mainFrame)
 sideLine.Size = UDim2.new(0, 2, 0, 278)
 sideLine.Position = UDim2.new(0, 100, 0, 42)
 sideLine.BackgroundColor3 = Color3.new(1, 1, 1)
 
-‎-- زر واجهه السايلنت ايم
+-- زر واجهه السايلنت ايم
 
 local btn = Instance.new("TextButton", sidebar)
 btn.Size = UDim2.new(1, 0, 0, 40)
@@ -109,7 +109,7 @@ btn.Font = Enum.Font.SourceSansBold
 btn.TextSize = 14
 btn.Text = "Silent Aim"
 
-‎-- زر ESP
+-- زر ESP
 local espBtn = Instance.new("TextButton", sidebar)
 espBtn.Size = UDim2.new(1, 0, 0, 40)
 espBtn.Position = UDim2.new(0, 0, 0, 60) -- تحته مباشرة
@@ -119,14 +119,14 @@ espBtn.Font = Enum.Font.SourceSansBold
 espBtn.TextSize = 14
 espBtn.Text = "ESP"
 
-‎-- صفحة ESP
+-- صفحة ESP
 local espPage = Instance.new("Frame", mainFrame)
 espPage.Size = UDim2.new(0, 428, 0, 278)
 espPage.Position = UDim2.new(0, 110, 0, 42)
 espPage.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
 espPage.Visible = false  -- تكون مخفية افتراضيًا
 
-‎-- لما تضغط زر ESP
+-- لما تضغط زر ESP
 espBtn.MouseButton1Click:Connect(function()
 	for _, child in ipairs(mainFrame:GetChildren()) do
 if (child:IsA("Frame") or child:IsA("ScrollingFrame")) and child ~= sidebar and child ~= header and child ~= sideLine then
@@ -151,7 +151,7 @@ if (child:IsA("Frame") or child:IsA("ScrollingFrame")) and child ~= sidebar and 
 	page.Visible = true
 end)
 
-‎-- زر سايلنت ايم 
+-- زر سايلنت ايم 
 
 local Silentbar = Instance.new("Frame", page)
 Silentbar.Size = UDim2.new(1, -20, 0, 40)
@@ -181,7 +181,7 @@ toggleBox.Text = ""
 local toggleCorner = Instance.new("UICorner", toggleBox)
 toggleCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- اعدادات الدائره
+-- اعدادات الدائره
 
 local active = false
 local currentTarget = nil
@@ -501,19 +501,19 @@ oldNamecall = hookmetamethod(game, "__namecall", function(self, ...)
     local args = {...}
     local method = getnamecallmethod()
 
-‎    -- التحقق أنه الريموت الصحيح والميثود FireServer
+    -- التحقق أنه الريموت الصحيح والميثود FireServer
     if self == REGunRemote and method == "FireServer" and args[1] == "Shoot" then
-‎        -- تغيير الوسيط الثالث إلى Vector3.new(NaN, NaN, NaN)
+        -- تغيير الوسيط الثالث إلى Vector3.new(NaN, NaN, NaN)
         args[3] = Vector3.new(0/0, 0/0, 0/0)
-‎        -- استدعاء الأصلي مع الوسائط المعدلة
+        -- استدعاء الأصلي مع الوسائط المعدلة
         return oldNamecall(self, unpack(args))
     end
 
-‎    -- إذا ما تحقق الشرط، رجّع الأصل
+    -- إذا ما تحقق الشرط، رجّع الأصل
     return oldNamecall(self, ...)
 end)
 
-‎-- زر ESP Player
+-- زر ESP Player
 local playerESPBtnFrame = Instance.new("Frame", espPage)
 playerESPBtnFrame.Size = UDim2.new(1, -20, 0, 40)
 playerESPBtnFrame.Position = UDim2.new(0, 10, 0, 40)
@@ -599,12 +599,12 @@ RunService.Heartbeat:Connect(function()
     end
 end)
 
-‎--// إعدادات الـ ESP الخاصة بالأدوات
+--// إعدادات الـ ESP الخاصة بالأدوات
 local Settings = {
     Items_ESP_Enabled = false
 }
 
-‎--// ألوان الأدوات
+--// ألوان الأدوات
 local ItemColors = {
     ["Glock"] = Color3.fromRGB(135,206,250),
     ["P226"] = Color3.fromRGB(135,206,250),
@@ -631,7 +631,7 @@ local ItemColors = {
 }
 local DefaultItemColor = Color3.fromRGB(255,255,255)
 
-‎--// أدوات غير ظاهرة
+--// أدوات غير ظاهرة
 local HiddenItems = {
     ["Fists"] = true,
     ["Mop"] = true,
@@ -641,9 +641,9 @@ local HiddenItems = {
     ["Farmerade"] = true,
 }
 
-‎--// خدمات
+--// خدمات
 
-‎--// تخزين التسميات
+--// تخزين التسميات
 local ItemsLabels = {}
 local TEXT_OFFSET = 10
 
@@ -729,7 +729,7 @@ local function updateItemsESPForPlayer(player)
     end
 end
 
-‎-- زر ESP Items
+-- زر ESP Items
 
 local Itemsbar = Instance.new("Frame", espPage)
 Itemsbar.Size = UDim2.new(1, -20, 0, 40)
@@ -759,17 +759,17 @@ ItemstoggleBox.Text = ""
 local ItemstoggleCorner = Instance.new("UICorner", ItemstoggleBox)
 ItemstoggleCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- حالة الزر
+-- حالة الزر
 local ESP_Items_active = false
 
-‎-- عند الضغط على الزر يتبدل ويشغل/يوقف ESP
+-- عند الضغط على الزر يتبدل ويشغل/يوقف ESP
 ItemstoggleBox.MouseButton1Click:Connect(function()
 	ESP_Items_active = not ESP_Items_active
 	ItemstoggleBox.Text = ESP_Items_active and "✅" or ""
 
     Settings.Items_ESP_Enabled = ESP_Items_active
 
-‎    -- إذا تم الإيقاف: احذف كل التسميات فورًا
+    -- إذا تم الإيقاف: احذف كل التسميات فورًا
     if not ESP_Items_active then
         for pl, list in pairs(ItemsLabels or {}) do
             if list then
@@ -782,7 +782,7 @@ ItemstoggleBox.MouseButton1Click:Connect(function()
     end
 end)
 
-‎-- تحديث مستمر لكل اللاعبين
+-- تحديث مستمر لكل اللاعبين
 RunService.Heartbeat:Connect(function()
     if Settings.Items_ESP_Enabled then
         for _, pl in ipairs(Players:GetPlayers()) do
@@ -793,7 +793,7 @@ RunService.Heartbeat:Connect(function()
     end
 end)
 
-‎-- تحديث عند دخول لاعب جديد
+-- تحديث عند دخول لاعب جديد
 Players.PlayerAdded:Connect(function(pl)
     pl.CharacterAdded:Connect(function()
         task.wait(0.3)
@@ -801,7 +801,7 @@ Players.PlayerAdded:Connect(function(pl)
     end)
 end)
 
-‎-- عنوان داخل واجهه سايلنت ايم
+-- عنوان داخل واجهه سايلنت ايم
 
 local SilentinfoLabel = Instance.new("TextLabel", page)
 SilentinfoLabel.Size = UDim2.new(0.8, 0, 0, 30)
@@ -814,7 +814,7 @@ SilentinfoLabel.Text = "Silent Aim:"
 SilentinfoLabel.TextXAlignment = Enum.TextXAlignment.Center
 SilentinfoLabel.TextYAlignment = Enum.TextYAlignment.Center
 
-‎--عنوان داخل واجهه ESP
+--عنوان داخل واجهه ESP
 
 local ESPinfoLabel = Instance.new("TextLabel", espPage)
 ESPinfoLabel.Size = UDim2.new(0.8, 0, 0, 30)
@@ -829,7 +829,7 @@ ESPinfoLabel.TextYAlignment = Enum.TextYAlignment.Center
 
 
 
-‎-- زر ESP Health
+-- زر ESP Health
 
 local Healthbar = Instance.new("Frame", espPage)
 Healthbar.Size = UDim2.new(1, -20, 0, 40)
@@ -859,14 +859,14 @@ HealthtoggleBox.Text = ""
 local HealthCorner = Instance.new("UICorner", HealthtoggleBox)
 HealthCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- حالة الزر
+-- حالة الزر
 local ESP_Health_active = false
 ---------------------------------------------------------------------
 
-‎-- متغيرات النظام
+-- متغيرات النظام
 local HealthTags = {}
 
-‎-- دالة اللون المتدرج
+-- دالة اللون المتدرج
 local function getHealthColor(health)
 	if health >= 50 then
 		local t = (100 - health) / 50
@@ -877,7 +877,7 @@ local function getHealthColor(health)
 	end
 end
 
-‎-- إنشاء النص
+-- إنشاء النص
 local function createHealthTag(player)
 	if player.Character and player.Character:FindFirstChild("Head") then
 		local Billboard = Instance.new("BillboardGui")
@@ -902,7 +902,7 @@ local function createHealthTag(player)
 	end
 end
 
-‎-- تحديث مستمر
+-- تحديث مستمر
 RunService.RenderStepped:Connect(function()
 	if not ESP_Health_active then return end
 	for _, player in ipairs(Players:GetPlayers()) do
@@ -921,7 +921,7 @@ RunService.RenderStepped:Connect(function()
 	end
 end)
 
-‎-- عند موت أو تجدد اللاعب
+-- عند موت أو تجدد اللاعب
 local function onCharacterAdded(player)
 	player.CharacterAdded:Connect(function(char)
 		repeat task.wait() until char:FindFirstChild("Head") and char:FindFirstChild("Humanoid")
@@ -941,14 +941,14 @@ Players.PlayerRemoving:Connect(function(player)
 end)
 
 ---------------------------------------------------------------------
-‎-- ⚡ الزر: تشغيل / إيقاف
+-- ⚡ الزر: تشغيل / إيقاف
 ---------------------------------------------------------------------
 HealthtoggleBox.MouseButton1Click:Connect(function()
 	ESP_Health_active = not ESP_Health_active
 	HealthtoggleBox.Text = ESP_Health_active and "✅" or ""
 
 	if not ESP_Health_active then
-‎		-- إزالة جميع التاغات لما يتوقف
+		-- إزالة جميع التاغات لما يتوقف
 		for _, v in pairs(HealthTags) do
 			if v.Parent then v.Parent:Destroy() end
 		end
@@ -956,7 +956,7 @@ HealthtoggleBox.MouseButton1Click:Connect(function()
 	end
 end)
 
-‎-- زر ESP Name
+-- زر ESP Name
 
 local Namebar = Instance.new("Frame", espPage)
 Namebar.Size = UDim2.new(1, -20, 0, 40)
@@ -986,11 +986,11 @@ NametoggleBox.Text = ""
 local NameCorner = Instance.new("UICorner", NametoggleBox)
 NameCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- متغير التحكم بالزر
+-- متغير التحكم بالزر
 local Names_Enabled = false
 local BillboardList = {}
 
-‎-- دالة إنشاء الاسم
+-- دالة إنشاء الاسم
 local function createNameBillboard(player)
 	if player == LocalPlayer then return end
 	if not player.Character or not player.Character:FindFirstChild("HumanoidRootPart") then return end
@@ -1029,7 +1029,7 @@ local function removeNameBillboard(player)
 	end
 end
 
-‎-- تحديث مستمر
+-- تحديث مستمر
 RunService.Heartbeat:Connect(function()
 	if not Names_Enabled then return end
 	for _, player in ipairs(Players:GetPlayers()) do
@@ -1042,7 +1042,7 @@ RunService.Heartbeat:Connect(function()
 	end
 end)
 
-‎-- التعامل مع اللاعبين الجدد واللي يموتون
+-- التعامل مع اللاعبين الجدد واللي يموتون
 Players.PlayerAdded:Connect(function(player)
 	player.CharacterAdded:Connect(function()
 		task.wait(1)
@@ -1054,7 +1054,7 @@ end)
 
 Players.PlayerRemoving:Connect(removeNameBillboard)
 
-‎-- ربط الزر مع وظيفة التفعيل والإيقاف
+-- ربط الزر مع وظيفة التفعيل والإيقاف
 NametoggleBox.MouseButton1Click:Connect(function()
 	Names_Enabled = not Names_Enabled
 	NametoggleBox.Text = Names_Enabled and "✅" or ""
@@ -1071,7 +1071,7 @@ NametoggleBox.MouseButton1Click:Connect(function()
 	end
 end)
 
-‎-- زر واجهه Player
+-- زر واجهه Player
 local PlayerBtn = Instance.new("TextButton", sidebar)
 PlayerBtn.Size = UDim2.new(1, 0, 0, 40)
 PlayerBtn.Position = UDim2.new(0, 0, 0, 110) -- ضع تحت زر Main مباشرة (تغير الرقم حسب الحاجة)
@@ -1081,7 +1081,7 @@ PlayerBtn.Font = Enum.Font.SourceSansBold
 PlayerBtn.TextSize = 14
 PlayerBtn.Text = "Player"
 
-‎-- صفحة فارغة جديدة
+-- صفحة فارغة جديدة
 local PlayerPage = Instance.new("ScrollingFrame", mainFrame)
 PlayerPage.Size = UDim2.new(0, 428, 0, 278)
 PlayerPage.Position = UDim2.new(0, 110, 0, 42)
@@ -1090,19 +1090,19 @@ PlayerPage.Visible = false
 PlayerPage.ScrollBarThickness = 6
 PlayerPage.CanvasSize = UDim2.new(0, 0, 0, 333)
 
-‎-- عند الضغط على الزر
+-- عند الضغط على الزر
 PlayerBtn.MouseButton1Click:Connect(function()
-‎	-- إخفاء كل الصفحات الأخرى
+	-- إخفاء كل الصفحات الأخرى
 	for _, child in ipairs(mainFrame:GetChildren()) do
 if (child:IsA("Frame") or child:IsA("ScrollingFrame")) and child ~= sidebar and child ~= header and child ~= sideLine then
 			child.Visible = false
 		end
 	end
-‎	-- إظهار الصفحة الجديدة
+	-- إظهار الصفحة الجديدة
 	PlayerPage.Visible = true
 end)
 
-‎-- عنوان داخل واجهه Player
+-- عنوان داخل واجهه Player
 
 local PlayerinfoLabel = Instance.new("TextLabel", PlayerPage)
 PlayerinfoLabel.Size = UDim2.new(0.8, 0, 0, 30)
@@ -1116,7 +1116,7 @@ PlayerinfoLabel.TextXAlignment = Enum.TextXAlignment.Center
 PlayerinfoLabel.TextYAlignment = Enum.TextYAlignment.Center
 
 
-‎-- زر Power Jump 
+-- زر Power Jump 
 
 local PowerJumpBar = Instance.new("Frame", PlayerPage)
 PowerJumpBar.Size = UDim2.new(1, -20, 0, 40)
@@ -1146,11 +1146,11 @@ PowerJumptoggleBox.Text = ""
 local PowerJumpCorner = Instance.new("UICorner", PowerJumptoggleBox)
 PowerJumpCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- الحالة
+-- الحالة
 local Power_Jump_active = false
 local jumpConnection -- نخزن الاتصال هنا
 
-‎-- دالة تربط حدث القفز
+-- دالة تربط حدث القفز
 local function connectJumping(hum, root)
 	if jumpConnection then
 		jumpConnection:Disconnect()
@@ -1167,14 +1167,14 @@ local function connectJumping(hum, root)
 	end)
 end
 
-‎-- دالة تجهيز الشخصية الحالية
+-- دالة تجهيز الشخصية الحالية
 local function setupCharacter(char)
 	local hum = char:WaitForChild("Humanoid")
 	local root = char:WaitForChild("HumanoidRootPart")
 	connectJumping(hum, root)
 end
 
-‎-- عند الضغط على الزر
+-- عند الضغط على الزر
 PowerJumptoggleBox.MouseButton1Click:Connect(function()
 	Power_Jump_active = not Power_Jump_active
 	PowerJumptoggleBox.Text = Power_Jump_active and "✅" or ""
@@ -1183,7 +1183,7 @@ PowerJumptoggleBox.MouseButton1Click:Connect(function()
 	end
 end)
 
-‎-- لو مات وولد اللاعب من جديد، نربط أوتوماتيك
+-- لو مات وولد اللاعب من جديد، نربط أوتوماتيك
 game.Players.LocalPlayer.CharacterAdded:Connect(function(char)
 	if Power_Jump_active then
 		setupCharacter(char)
@@ -1220,16 +1220,16 @@ SpeedBoosttoggleBox.Text = ""
 local SpeedBoosttoggleCorner = Instance.new("UICorner", SpeedBoosttoggleBox)
 SpeedBoosttoggleCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- متغير الحالة
+-- متغير الحالة
 local Speed_Boost_active = false
 
-‎-- وظيفة تغيير السرعة عند الضغط على الزر
+-- وظيفة تغيير السرعة عند الضغط على الزر
 SpeedBoosttoggleBox.MouseButton1Click:Connect(function()
 	Speed_Boost_active = not Speed_Boost_active
 	SpeedBoosttoggleBox.Text = Speed_Boost_active and "✅" or ""
 end)
 
-‎-- حلقة التكرار لتطبيق السرعة كل 0.2 ثانية
+-- حلقة التكرار لتطبيق السرعة كل 0.2 ثانية
 spawn(function()
 	while true do
 		wait(0.2)
@@ -1252,7 +1252,7 @@ local function waitForChar()
 end
 
 
-‎-- زر Noclip
+-- زر Noclip
 
 local Noclipbar = Instance.new("Frame", PlayerPage)
 Noclipbar.Size = UDim2.new(1, -20, 0, 40)
@@ -1341,14 +1341,14 @@ local function setNoclip(on)
 end
 
 -- ===============================
-‎-- ربط الزر بالوظيفة
+-- ربط الزر بالوظيفة
 -- ===============================
 NocliptoggleBox.MouseButton1Click:Connect(function()
     setNoclip(not noclipEnabled)
 end)
 
 -- ===============================
-‎-- إعادة تفعيل النوكليب بعد الموت فقط إذا كان مفعل
+-- إعادة تفعيل النوكليب بعد الموت فقط إذا كان مفعل
 -- ===============================
 player.CharacterAdded:Connect(function(char)
     char:WaitForChild("HumanoidRootPart", 5)
@@ -1372,7 +1372,7 @@ player.CharacterAdded:Connect(function(char)
 end)
 
 -- ===============================
-‎-- اختصار مفتاح N
+-- اختصار مفتاح N
 -- ===============================
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
@@ -1381,10 +1381,10 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
     end
 end)
 
-‎-- تأكد أن هذا السكربت LocalScript وموجود في مكان يشوف PlayerPage (مثلاً داخل نفس ScreenGui)
+-- تأكد أن هذا السكربت LocalScript وموجود في مكان يشوف PlayerPage (مثلاً داخل نفس ScreenGui)
 local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 
-‎--زر TP UP
+--زر TP UP
 
 local TPButton = Instance.new("TextButton")
 TPButton.Name = "TPUpButton"
@@ -1398,12 +1398,12 @@ TPButton.Font = Enum.Font.GothamBold
 TPButton.TextSize = 12
 TPButton.AutoButtonColor = true
 
-‎-- جعل الحواف دائرية
+-- جعل الحواف دائرية
 local TPcorner = Instance.new("UICorner")
 TPcorner.CornerRadius = UDim.new(0, 10)
 TPcorner.Parent = TPButton
 
-‎-- وظيفة الزر
+-- وظيفة الزر
 TPButton.MouseButton1Click:Connect(function()
 	local character = LocalPlayer.Character
 	if character and character:FindFirstChild("HumanoidRootPart") then
@@ -1412,10 +1412,10 @@ TPButton.MouseButton1Click:Connect(function()
 	end
 end)
 
-‎-- // الريموت
+-- // الريموت
 local RESoda = ReplicatedStorage.Modules.Packages._Index["sleitnick_net@0.2.0"].net["RE/Soda"]
 
-‎-- زر Infinite Stamina
+-- زر Infinite Stamina
 
 local InfiniteStaminaBar = Instance.new("Frame", PlayerPage)
 InfiniteStaminaBar.Size = UDim2.new(1, -20, 0, 40)
@@ -1424,7 +1424,7 @@ InfiniteStaminaBar.BackgroundColor3 = Color3.fromRGB(55, 55, 55)
 local barCorner = Instance.new("UICorner", InfiniteStaminaBar)
 barCorner.CornerRadius = UDim.new(0, 8)
 
-‎-- // النص (العنوان)
+-- // النص (العنوان)
 local InfiniteStaminalabel = Instance.new("TextLabel", InfiniteStaminaBar)
 InfiniteStaminalabel.Size = UDim2.new(0.8, 0, 1, 0)
 InfiniteStaminalabel.Position = UDim2.new(0, 10, 0, 0)
@@ -1435,7 +1435,7 @@ InfiniteStaminalabel.TextSize = 16
 InfiniteStaminalabel.Text = "Infinite Stamina"
 InfiniteStaminalabel.TextXAlignment = Enum.TextXAlignment.Left
 
-‎-- // الزر الجانبي (تشغيل / إيقاف)
+-- // الزر الجانبي (تشغيل / إيقاف)
 local InfiniteStaminatoggleBox = Instance.new("TextButton", InfiniteStaminaBar)
 InfiniteStaminatoggleBox.Size = UDim2.new(0, 30, 0, 30)
 InfiniteStaminatoggleBox.Position = UDim2.new(1, -40, 0.5, -15)
@@ -1447,21 +1447,21 @@ InfiniteStaminatoggleBox.Text = ""
 local InfiniteStaminatoggleCorner = Instance.new("UICorner", InfiniteStaminatoggleBox)
 InfiniteStaminatoggleCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- // متغير التفعيل
+-- // متغير التفعيل
 local Infinite_Stamina_active = false
 
-‎-- // التبديل بين التشغيل والإيقاف
+-- // التبديل بين التشغيل والإيقاف
 InfiniteStaminatoggleBox.MouseButton1Click:Connect(function()
 	Infinite_Stamina_active = not Infinite_Stamina_active
 	InfiniteStaminatoggleBox.Text = Infinite_Stamina_active and "✅" or ""
 	
 	if Infinite_Stamina_active then
-‎		-- تشغيل الريموت مباشرة
+		-- تشغيل الريموت مباشرة
 		firesignal(RESoda.OnClientEvent)
 	end
 end)
 
-‎-- // تنفيذ الريموت كل 10 ثواني إذا كان مفعّل
+-- // تنفيذ الريموت كل 10 ثواني إذا كان مفعّل
 task.spawn(function()
 	while true do
 		if Infinite_Stamina_active then
@@ -1471,13 +1471,13 @@ task.spawn(function()
 	end
 end)
 
-‎-- اعدادات Checkpoint
+-- اعدادات Checkpoint
 
 local savedPosition = nil
 local trackingEnabled = false
 local connection = nil -- لتخزين الاتصال مع HealthChanged
 
-‎-- زر Checkpoint
+-- زر Checkpoint
 
 local CheckpointBar = Instance.new("Frame", PlayerPage)
 CheckpointBar.Size = UDim2.new(1, -20, 0, 40)
@@ -1507,7 +1507,7 @@ CheckpointtoggleBox.Text = ""
 local CheckpointCorner = Instance.new("UICorner", CheckpointtoggleBox)
 CheckpointCorner.CornerRadius = UDim.new(0, 6)
 
-‎-- دالة متابعة دم اللاعب
+-- دالة متابعة دم اللاعب
 local function startTracking()
     if not player.Character or not trackingEnabled then return end
     local character = player.Character
@@ -1516,11 +1516,11 @@ local function startTracking()
 
     connection = humanoid.HealthChanged:Connect(function(health)
         if trackingEnabled and health <= 0 and character:FindFirstChild("HumanoidRootPart") then
-‎            -- حفظ الاحداثيات عند الموت
+            -- حفظ الاحداثيات عند الموت
             savedPosition = character.HumanoidRootPart.Position
             print("تم حفظ الإحداثيات عند الموت:", savedPosition)
 
-‎            -- بعد 0.5 ثانية، تفعيل الريموت RespawnEvent إذا الزر مفعل
+            -- بعد 0.5 ثانية، تفعيل الريموت RespawnEvent إذا الزر مفعل
             task.delay(1, function()
                 if trackingEnabled then
                     local netModule = ReplicatedStorage.Modules.Packages._Index["sleitnick_net@0.2.0"].net
@@ -1539,7 +1539,7 @@ local function stopTracking()
     end
 end
 
-‎-- عند الضغط على ToggleBox
+-- عند الضغط على ToggleBox
 CheckpointtoggleBox.MouseButton1Click:Connect(function()
     trackingEnabled = not trackingEnabled
     CheckpointtoggleBox.Text = trackingEnabled and "✅" or ""
@@ -1550,21 +1550,21 @@ CheckpointtoggleBox.MouseButton1Click:Connect(function()
     end
 end)
 
-‎-- متابعة رجوع الشخصية
+-- متابعة رجوع الشخصية
 player.CharacterAdded:Connect(function(character)
-‎    -- إذا فيه إحداثيات محفوظة والزر مفعل، نقله فورًا
+    -- إذا فيه إحداثيات محفوظة والزر مفعل، نقله فورًا
     if trackingEnabled and savedPosition then
         character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(savedPosition)
         print("تم نقل اللاعب للإحداثيات المحفوظة بعد العودة")
     end
 
-‎    -- إذا الزر مفعل، نعيد الاتصال بالموت
+    -- إذا الزر مفعل، نعيد الاتصال بالموت
     if trackingEnabled then
         startTracking()
     end
 end)
 
-‎-- زر واجهه Shop
+-- زر واجهه Shop
 
 local ShopBtn = Instance.new("TextButton", sidebar)
 ShopBtn.Size = UDim2.new(1, 0, 0, 40)
@@ -1583,19 +1583,19 @@ ShopPage.Visible = false
 ShopPage.ScrollBarThickness = 6
 ShopPage.CanvasSize = UDim2.new(0, 0, 0, 600)
 
-‎-- عند الضغط على الزر
+-- عند الضغط على الزر
 ShopBtn.MouseButton1Click:Connect(function()
-‎	-- إخفاء كل الصفحات الأخرى
+	-- إخفاء كل الصفحات الأخرى
 	for _, child in ipairs(mainFrame:GetChildren()) do
 if (child:IsA("Frame") or child:IsA("ScrollingFrame")) and child ~= sidebar and child ~= header and child ~= sideLine then
 			child.Visible = false
 		end
 	end
-‎	-- إظهار الصفحة الجديدة
+	-- إظهار الصفحة الجديدة
 	ShopPage.Visible = true
 end)
 
-‎-- عنوان داخل واجهه Shop
+-- عنوان داخل واجهه Shop
 
 local AmmoinfoLabel = Instance.new("TextLabel", ShopPage)
 AmmoinfoLabel.Size = UDim2.new(0.8, 0, 0, 30)
@@ -1608,7 +1608,7 @@ AmmoinfoLabel.Text = "Ammo Shop:"
 AmmoinfoLabel.TextXAlignment = Enum.TextXAlignment.Center
 AmmoinfoLabel.TextYAlignment = Enum.TextYAlignment.Center
 
-‎-- زر Pistol
+-- زر Pistol
 
 local PistolBtn = Instance.new("TextButton")
 PistolBtn.Name = "Pistol"
@@ -1632,7 +1632,7 @@ PistolBtn.MouseButton1Click:Connect(function()
 	shop:InvokeServer("Ammo", "Pistol Ammo")
 end)
 
-‎-- زر Rifle
+-- زر Rifle
 local Riflebtn = Instance.new("TextButton")
 Riflebtn.Name = "Rifle"
 Riflebtn.Size = UDim2.new(0, 120, 0, 40)
@@ -1656,7 +1656,7 @@ Riflebtn.MouseButton1Click:Connect(function()
 end)
 
 
-‎-- زر Shotgun
+-- زر Shotgun
 local Shotgunbtn = Instance.new("TextButton")
 Shotgunbtn.Name = "Shotgun"
 Shotgunbtn.Size = UDim2.new(0, 120, 0, 40)
@@ -1680,7 +1680,7 @@ Shotgunbtn.MouseButton1Click:Connect(function()
 end)
 
 
-‎-- زر Explosive
+-- زر Explosive
 local Explosivebtn = Instance.new("TextButton")
 Explosivebtn.Name = "Explosive"
 Explosivebtn.Size = UDim2.new(0, 120, 0, 40)
@@ -1704,7 +1704,7 @@ Explosivebtn.MouseButton1Click:Connect(function()
 end)
 
 
-‎-- زر Arrows
+-- زر Arrows
 local Arrowsbtn = Instance.new("TextButton")
 Arrowsbtn.Name = "Arrows"
 Arrowsbtn.Size = UDim2.new(0, 120, 0, 40)
@@ -1727,7 +1727,7 @@ Arrowsbtn.MouseButton1Click:Connect(function()
 	shop:InvokeServer("Ammo", "Arrows")
 end)
 
-‎--عنوان داخل واجهه Shop
+--عنوان داخل واجهه Shop
 
 local BoxinfoLabel = Instance.new("TextLabel", ShopPage)
 BoxinfoLabel.Size = UDim2.new(0.8, 0, 0, 30)
@@ -2067,7 +2067,7 @@ Sodabtn.MouseButton1Click:Connect(function()
 end)
 
 
-‎-- زر قائمة التجاهل Ignore List
+-- زر قائمة التجاهل Ignore List
 local IgnoreButton = Instance.new("TextButton", page)
 IgnoreButton.Size = UDim2.new(0, 150, 0, 35)
 IgnoreButton.Position = UDim2.new(0, 10, 0, 160) -- تحت السلايدر
@@ -2080,7 +2080,7 @@ IgnoreButton.Text = "Ignore List"
 local IgnoreCorner = Instance.new("UICorner", IgnoreButton)
 IgnoreCorner.CornerRadius = UDim.new(0, 8)
 
-‎-- القائمة المنبثقة
+-- القائمة المنبثقة
 local IgnorePopup = Instance.new("Frame", page)
 IgnorePopup.Size = UDim2.new(0, 250, 0, 250)
 IgnorePopup.Position = UDim2.new(0, 170, 0, 50) 
