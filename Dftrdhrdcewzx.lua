@@ -9,8 +9,8 @@ local LocalPlayer = Players.LocalPlayer
 local pg = LocalPlayer:WaitForChild("PlayerGui")
 local IgnoredPlayers = {
     ["A7x702xxx"] = true,
-    ["Ggggyyytthd"] = true
-	["Astrog1_fan"] = true
+    ["Ggggyyytthd"] = true,
+	["Astrog1_fan"] = true,
 }
 
 local ok, REGunRemote = pcall(function()
