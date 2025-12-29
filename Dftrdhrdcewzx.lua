@@ -627,8 +627,8 @@ local ItemColors = {
 	["M24"] = Color3.fromRGB(255,215,0),
 	["Spas-12"] = Color3.fromRGB(255,0,0),
     ["Crossbow"] = Color3.fromRGB(255,215,0),
-
-
+	["Snowball Launcher"] = Color3.fromRGB(255,215,0),
+	["AR-15"] = Color3.fromRGB(255,0,0),
 }
 local DefaultItemColor = Color3.fromRGB(255,255,255)
 
