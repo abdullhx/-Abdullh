@@ -8,7 +8,7 @@ local Camera = workspace.CurrentCamera
 local LocalPlayer = Players.LocalPlayer
 local pg = LocalPlayer:WaitForChild("PlayerGui")
 local IgnoredPlayers = {
-    ["A7x702xxx"] = true,
+    ["C7x702"] = true,
     ["Ggggyyytthd"] = true,
     ["Astrog1_fan"] = true,
 }
