@@ -11,10 +11,10 @@ local function RunScript(url, msg)
 end
 
 -- تشغيل السكربت الأول
-RunScript("https://raw.githubusercontent.com/abdullhx/-Abdullh/refs/heads/main/Newfyrfhutr.lua", "تم تشغيل 1")
+RunScript("https://raw.githubusercontent.com/abdullhx/-Abdullh/refs/heads/main/WallShaigavztba.lua", "تم تشغيل 1")
 
 -- انتظار ثانية
 task.wait(1)
 
 -- Wallbang
-RunScript("https://raw.githubusercontent.com/abdullhx/-Abdullh/refs/heads/main/WallShaigavztba.lua", "تم تشغيل 2")
+RunScript("https://raw.githubusercontent.com/abdullhx/-Abdullh/refs/heads/main/Newfyrfhutr.lua", "تم تشغيل 2")
